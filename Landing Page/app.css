@@ -1,0 +1,266 @@
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #eee;
+}
+
+#header {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: #eee;
+  top: 1px;
+}
+
+#header #nav-bar {
+  /*   background-color: grey; */
+  height: 20%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header #nav-link {
+  display: flex;
+  justify-content: space-around;
+  /*   background-color: yellow; */
+  width: 30%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav-link .nav-link {
+  color: black;
+}
+#nav-bar img {
+  width: 300px;
+  margin: 1.5rem 0.5rem;
+}
+#main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title,
+#form {
+  position: relative;
+}
+#main-content #title {
+  /*   background-color: orange; */
+  text-align: center;
+  font-size: 1.5em;
+}
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main #email {
+  width: 0 auto;
+  margin: 1em;
+}
+
+.button {
+  margin: 0 auto;
+  background-color: #f1c40f;
+  font-weight: 800;
+  padding: 0.2em 1em;
+  border: 0;
+  border-radius: 0.5em;
+  transition: 0.8s ease-in-out;
+}
+
+.button:hover {
+  background-color: #ef920e;
+  border-radius: 2em;
+  border: 0;
+}
+
+#services .items {
+  display: flex;
+  /* background-color: grey; */
+  width: 0 auto;
+  padding: 1.5em 0;
+  position: relative;
+  top: 5rem;
+}
+
+.services .img {
+  background-image: linear-gradient(360deg, #f28322, orange);
+  font-size: 3rem;
+  margin: 0 5rem 0 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#services .items:first-child div {
+  position: relative;
+  left: 1.5rem;
+}
+
+#services .description,
+.item-name {
+  margin: 0;
+}
+
+#services .item-name {
+  font-size: 1.5em;
+}
+#pricing-table {
+  display: flex;
+  /* background-color: grey; */
+  width: 70%;
+  justify-content: center;
+  position: relative;
+  top: 7.5rem;
+}
+
+#pricing-table .table {
+  /* width: calc(100% / 3); */
+  min-width: calc(100% / 3);
+  height: 19.5rem;
+  border: solid #ddd 1px;
+  margin: 0 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+#pricing-table .table h3 {
+  font-weight: 700;
+  background-color: #ddd;
+  font-size: 1rem;
+  padding: 1em;
+  text-align: center;
+}
+
+.table .price {
+  font-weight: 700;
+  font-size: 2em;
+  align-self: center;
+}
+
+.table .features {
+  list-style-type: none;
+  display: flex;
+  margin-top: 0.5em;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  right: 20px;
+}
+
+.table .features li {
+  margin: 0 0 0.2em 0;
+}
+.table .button {
+  font-weight: 400;
+  font-size: 1.125em;
+  padding: 0.25rem 1.5rem;
+  margin: 1rem;
+}
+
+#footer-navbar {
+  background-color: #ddd;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+#footer-navbar-link {
+  /*   background-color: blue; */
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+}
+
+footer .foot-nav-link {
+  padding-left: 1rem;
+  color: black;
+}
+
+footer h5 {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+#how-it-works {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#how-it-works #video {
+  position: relative;
+  top: 5.5rem;
+}
+@media (max-width: 1120px) {
+  #pricing-table {
+    flex-direction: column;
+    align-items: center;
+  }
+  #pricing-table .table {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  /* body {
+    background-color: blueviolet;
+  } */
+  #header #nav-link {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 525px) {
+  /* body {
+    background-color: yellowgreen;
+  } */
+  #header #nav-bar {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  #nav-bar img {
+    margin-bottom: 0;
+  }
+
+  #services .items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #services .items div {
+    /* background-color: #ef920e; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-top: 0.5rem;
+  }
+  #services .items:first-child div {
+    left: 0;
+  }
+
+  #services .description,
+  .item-name {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #services .description {
+    text-align: center;
+  }
+
+  #services {
+    position: relative;
+    left: 1.5em;
+  }
+}
