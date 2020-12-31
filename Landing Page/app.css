@@ -4,10 +4,13 @@ body {
 }
 
 #header {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
   background-color: #eee;
-  top: 1px;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 #header #nav-bar {
@@ -39,6 +42,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#form-submit {
+  padding: 12em 0 0 0;
 }
 
 #title,
@@ -215,6 +222,9 @@ footer h5 {
   #header #nav-link {
     flex-direction: column;
     align-items: center;
+  }
+  #form-submit {
+    padding: 15em 0 0 0;
   }
 }
 

@@ -1,0 +1,136 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  color: #00161666;
+}
+
+#title {
+  /* background: lightcoral; */
+  font-weight: 100;
+  text-align: center;
+  padding: 0.8em 0;
+  font-size: 1.6rem;
+  margin: 0;
+  color: black;
+}
+
+#nav-links {
+  /* background-color: lightgray; */
+  width: 0 auto;
+  height: 15em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 0.2rem solid grey;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul .nav-link {
+  color: #4d4e53;
+  font-weight: 100;
+  font-size: 0.95em;
+}
+
+ul .links-list {
+  padding: 0rem 1.875rem;
+  width: auto;
+}
+
+#main-doc {
+  padding: 1.5em;
+}
+
+.topic-header {
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-bottom: 0.8em;
+}
+
+.topic-para {
+  padding: 0 1em;
+}
+
+.topic-ls {
+  padding-left: 5em;
+  list-style-type: disc;
+}
+
+.topic-ls-para {
+  margin-bottom: 1em;
+}
+
+.topic-info {
+  font-size: 0.96em;
+  color: #4d4e53;
+  line-height: 1.5;
+  word-wrap: break-word;
+  padding-right: 1em;
+}
+
+.code {
+  display: block;
+  text-align: left;
+  padding: 1em;
+  background: #f7f7f7;
+  margin: 0.8em;
+  word-break: normal;
+  white-space: pre-line;
+  word-wrap: normal;
+  position: relative;
+  left: 1.5em;
+  color: #4d4e53;
+}
+
+@media (min-width: 800px) 
+{
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #header {
+    max-width: 40%;
+    height: 100%;
+    border-right: 0.2rem solid grey;
+    position: fixed;
+    z-index: 9999;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    flex-shrink: 1;
+  }
+
+  #nav-links {
+    height: auto;
+    font-size: 1rem;
+    border-style: none;
+  }
+
+  .links-list {
+    border: 0px solid black;
+    border-top: 0.1rem solid grey;
+  }
+
+  #main-doc {
+    width: 75%;
+    position: absolute;
+    left: 25%;
+    flex-shrink: 5;
+  }
+
+  @media (max-width: 850px) {
+    .links-list {
+      border: 0.1rem solid grey;
+    }
+  }
+}
