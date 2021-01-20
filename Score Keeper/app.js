@@ -7,7 +7,8 @@ const p1 = {
 const p2 = {
     score: 0,
     button: document.querySelector('#p2Button'),
-    display: document.querySelector('#p2Display')
+    display: document.querySelector('#p2Disp
+    lay')
 };
 
 
