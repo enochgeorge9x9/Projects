@@ -8,12 +8,17 @@ const methodOverride = require('method-override')
 const ejsMate = require('ejs-mate');
 const session = require('express-session')
 const flash = require('connect-flash')
+const passport = require('passport') //for authentication
+const LocalStrategy = require('passport-local')
+
+const User = require('./models/user')
 
 const ExpressError = require('./utils/ExpressError');
 const catchAsync = require('./utils/catchAsync')
 
 const campgroundRouter = require('./routes/campgrounds')
 const reviewRouter = require('./routes/reviews')
+const userRouter = require('./routes/users')
 
 mongoose.set('useNewUrlParser', true);
 mongoose.connect('mongodb://localhost:27017/YelpCamp',
@@ -52,19 +57,40 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 
-app.get('/', (req, res) => {
-    res.render('home')
-})
+app.use(passport.initialize())
+app.use(passport.session())  //Helps to be logged in
 
+passport.use(new LocalStrategy(User.authenticate())) //uses LocalStrategy to authenticate User model
+passport.serializeUser(User.serializeUser()) //how the user is stored in the session
+passport.deserializeUser(User.deserializeUser()) //how the user is unstored from the session
 
 app.use((req, res, next) => {
+    if (!['/login', '/register', '/'].includes(req.originalUrl)) {
+        console.log(req.originalUrl);
+        req.session.returnTo = req.originalUrl;
+    }
+    console.log('Sessions', req.session)
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next()
 })
 
+app.get('/', (req, res) => {
+    res.render('home')
+})
+
+app.get('/fakeUser', async (req, res) => {
+    const user = new User({ email: 'enoch@gmail.com', username: 'enoch' });
+    const newUser = await User.register(user, 'enoch');
+    res.send(newUser)
+})
+
+app.use('/', userRouter)
 app.use('/campgrounds', campgroundRouter)
 app.use('/campgrounds/:id/reviews', reviewRouter)
+
+
 
 
 app.all('*', (req, res, next) => {
@@ -77,6 +103,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error.ejs', { err })
 })
 
-app.listen(3000, (req, res) => {
-    console.log('Listening on Port 3000'.toUpperCase())
+app.listen(8080, (req, res) => {
+    console.log('Listening on Port 8080'.toUpperCase())
 })
