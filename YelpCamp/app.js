@@ -1,4 +1,6 @@
 
+
+
 const express = require('express');
 const app = express();
 
@@ -64,13 +66,17 @@ passport.use(new LocalStrategy(User.authenticate())) //uses LocalStrategy to aut
 passport.serializeUser(User.serializeUser()) //how the user is stored in the session
 passport.deserializeUser(User.deserializeUser()) //how the user is unstored from the session
 
+
 app.use((req, res, next) => {
-    if (!['/login', '/register', '/'].includes(req.originalUrl)) {
-        console.log(req.originalUrl);
-        req.session.returnTo = req.originalUrl;
-    }
-    console.log('Sessions', req.session)
+    // !Bug fix: When editing a post, then redirects to login, but you go back
+    //!to the campground and login from the navbar, after logging in the error occurs. 
+    // if (!['/login', '/register', '/'].includes(req.originalUrl)) {
+    //     // console.log(req.originalUrl);
+    //     req.session.returnTo = req.originalUrl;
+    // }
+    // console.log('Sessions', req.session)
     res.locals.currentUser = req.user;
+    // console.log('req.user: ', req.user, 'currentUser:', res.locals.currentUser )
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next()

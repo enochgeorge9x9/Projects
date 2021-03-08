@@ -1,31 +1,22 @@
 const express = require('express');
 const router = express.Router({mergeParams: true}) //Merging parmas so that parmas from app.js can be used in this route
-const mongoose = require('mongoose');
 
 const Review = require('../models/reviews');
 const Campground = require('../models/campGround')
 
-const {reviewSchema} = require('../schemas.js')
+const {validateReview, isLoggedIn, isReviewAuthor} = require('../middlewares')
 
-
-const ExpressError = require('../utils/ExpressError');
 const catchAsync = require('../utils/catchAsync')
 
-const validateReview = (req, res, next) => {
-    const {error} = reviewSchema.validate(req.body)
-    if(error){
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    }else{
-        next()
-    }
-}
 
-router.post('/',validateReview, catchAsync(async (req, res) => {
+
+router.post('/',isLoggedIn, validateReview, catchAsync(async (req, res) => {
     const {id} = req.params;
     const campground = await Campground.findById(id);
     const {review} = req.body;
     const newReview = new Review(review);
+    newReview.author = req.user._id;
+    // console.log(newReview)
     campground.reviews.push(newReview);
     await campground.save();
     await newReview.save();
@@ -35,7 +26,7 @@ router.post('/',validateReview, catchAsync(async (req, res) => {
 } ))
 
 
-router.delete('/:reviewId', catchAsync(async (req, res) => {
+router.delete('/:reviewId',isLoggedIn, isReviewAuthor, catchAsync(async (req, res) => {
     const {id, reviewId} = req.params;
     const campground = await Campground.findByIdAndUpdate(id, {$pull: {reviews: reviewId}}) 
     const removeReview = await Review.findByIdAndDelete(reviewId)

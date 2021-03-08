@@ -13,7 +13,11 @@ const CampgroundSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Review'
         }
-    ]
+    ],
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 //Triggers when findByIdAndDelete is excuted by mongoose from app.js

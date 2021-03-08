@@ -12,6 +12,10 @@
                         <h5 class="card-title">
                             <%= campground.title %>
                         </h5>
+                        <p class="card-text"><small class="text-muted">
+                                By: <%= campground.author.username %>
+                            </small></p>
+                        
                         <p class="card-text">
                             <%= campground.description %>
                         </p>
