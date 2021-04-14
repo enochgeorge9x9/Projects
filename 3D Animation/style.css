@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0
+}
+
+body{
+    font-family: sans-serif;
+    overflow:hidden;
+}
+
+.scene,canvas{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url('https://wallpaperaccess.com/full/4354880.jpg');
+    background-size: cover;
+}
