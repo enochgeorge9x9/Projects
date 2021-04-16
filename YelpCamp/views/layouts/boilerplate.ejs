@@ -8,14 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
-        <title>BOILERPLATE!!!</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/stylesheets/app.css">
+
+    <title>YelpCamp</title>
 </head>
 
 <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar') %>
-        <main class="container mt-5">
-            <%- include('../partials/flash') %> 
-            <%- body %>
+        <main class="container mt-1">
+            <%- include('../partials/flash') %>
+                <%- body %>
         </main>
         <%- include('../partials/footer') %>
             <!-- Javascript Dont touch -->
@@ -23,6 +27,8 @@
                 integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
                 crossorigin="anonymous"></script>
             <script src="/javascripts/validateForm.js"></script>
+
+
 </body>
 
 </html>

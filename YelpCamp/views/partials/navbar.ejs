@@ -8,16 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/campgrounds">CampGrounds</a>
-                <a class="nav-link" href="/campgrounds/new">Add CampGround</a>
+                <a class="nav-link" href="/campgrounds">Campgrounds</a>
+                <a class="nav-link" href="/campgrounds/new">Add Campground</a>
             </div>
             <div class="d-flex ms-auto">
                 <div class="navbar-nav">
                     <% if(!currentUser){ %>
                         <a href="/login" class="nav-link">Login</a>
-                        <a href="/register" class="nav-link">Sign Up</a>
+                        <a href="/register" class="nav-link">Register</a>
                         <% }else{ %>
                             <a href="/logout" class="nav-link">Logout</a>
+                            <p class="nav-link">Welcome, <%=currentUser.username%> </p>
                             <% } %>
                 </div>
             </div>

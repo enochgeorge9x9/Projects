@@ -7,7 +7,8 @@ const Review = require('./models/reviews')
 const isLoggedIn = (req, res, next) => {
     // console.log(req.user)
     if (!req.isAuthenticated()) {
-        req.session.returnTo = req.orginalUrl;
+        // console.log(req.path, req.originalUrl)
+        req.session.returnTo = req.originalUrl;
         req.flash('error', "Must be Logged In")
         return res.redirect('/login')
     }

@@ -1,31 +1,42 @@
 <% layout('layouts/boilerplate.ejs') %>
-
-    <form action="/register" method="POST" class="needs-validation" novalidate>
-        <div class="mb-3">
-            <label class='form-label' for="username">Username</label>
-            <input class='form-control' type="text" id="username" name="username"
-                placeholder="Enter Username" required />
-            <div class="valid-feedback">
-                Looks Great
+    <div class="container justify-content-center align-items-center mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
+                        alt="" class="card-img-top mb-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Register</h5>
+                        <form action="/register" method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label class='form-label' for="username">Username</label>
+                                <input class='form-control' type="text" id="username" name="username"
+                                    placeholder="Enter Username" required />
+                                <div class="valid-feedback">
+                                    Looks Great
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class='form-label' for="email">Email</label>
+                                <input class='form-control' type="email" id="email" name="email"
+                                    placeholder="Enter Email" required />
+                                <div class="valid-feedback">
+                                    Looks Great
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class='form-label' for="password">Password</label>
+                                <input class='form-control' type="password" id="password" name="password"
+                                    placeholder="Enter password" required />
+                                <div class="valid-feedback">
+                                    Looks Great
+                                </div>
+                            </div>
+                            <div class="mb-3 d-grid gap-2">
+                                <button class="btn btn-success">Register</button>
+                            </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mb-3">
-            <label class='form-label' for="email">Email</label>
-            <input class='form-control' type="email" id="email" name="email"
-                placeholder="Enter Email" required />
-            <div class="valid-feedback">
-                Looks Great
-            </div>
-        </div>
-        <div class="mb-3">
-            <label class='form-label' for="password">Password</label>
-            <input class='form-control' type="password" id="password" name="password"
-                placeholder="Enter password" required />
-            <div class="valid-feedback">
-                Looks Great
-            </div>
-        </div>
-        <div class="mb-3">
-            <button class="btn btn-success">Add CampGround</button>
-        </div>
-    </form>
+    </div>
